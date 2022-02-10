@@ -1,16 +1,16 @@
-%define		kdeplasmaver	5.23.5
+%define		kdeplasmaver	5.24.0
 %define		qtver		5.9.0
 %define		kpname		plasma-firewall
 %define		kf5ver		5.39.0
 
 Summary:	plasma-firewall
 Name:		kp5-%{kpname}
-Version:	5.23.5
+Version:	5.24.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	62d2fa6c0d14cc107302b4a0c685662e
+# Source0-md5:	2c43882de9c657073aed4df2c01eeac4
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= 5.15.0
 BuildRequires:	Qt5DBus-devel >= 5.15.0
@@ -66,7 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kpname}.lang
 %defattr(644,root,root,755)
 %{_libdir}/libkcm_firewall_core.so
-%{_libdir}/qt5/plugins/kcms/kcm_firewall.so
 %{_libdir}/qt5/plugins/kf5/plasma_firewall/firewalldbackend.so
 %{_libdir}/qt5/plugins/kf5/plasma_firewall/ufwbackend.so
 %attr(755,root,root) %{_prefix}/libexec/kauth/kde_ufw_plugin_helper
@@ -75,6 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/system.d/org.kde.ufw.conf
 %{_datadir}/kcm_ufw/defaults
 %{_datadir}/kpackage/kcms/kcm_firewall
-%{_datadir}/kservices5/kcm_firewall.desktop
 %{_datadir}/metainfo/org.kde.plasma.firewall.metainfo.xml
 %{_datadir}/polkit-1/actions/org.kde.ufw.policy
+%{_libdir}/qt5/plugins/plasma/kcms/systemsettings/kcm_firewall.so
+%{_desktopdir}/kcm_firewall.desktop
