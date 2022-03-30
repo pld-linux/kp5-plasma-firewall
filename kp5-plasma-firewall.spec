@@ -1,16 +1,19 @@
-%define		kdeplasmaver	5.24.3
+#
+# Conditional build:
+%bcond_with	tests		# build with tests
+%define		kdeplasmaver	5.24.4
 %define		qtver		5.9.0
 %define		kpname		plasma-firewall
 %define		kf5ver		5.39.0
 
 Summary:	plasma-firewall
 Name:		kp5-%{kpname}
-Version:	5.24.3
+Version:	5.24.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	5db7aefb3bddc262f5fb7624fe8a9ea7
+# Source0-md5:	abc65557daac2323bd5f9e0939805f0e
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= 5.15.0
 BuildRequires:	Qt5DBus-devel >= 5.15.0
@@ -49,10 +52,15 @@ Plasma 5 Firewall KCM.
 install -d build
 cd build
 %cmake -G Ninja \
+	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	../
 %ninja_build
+
+%if %{with tests}
+ctest
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
