@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.25.3
+%define		kdeplasmaver	5.25.4
 %define		qtver		5.15.2
 %define		kpname		plasma-firewall
 %define		kf5ver		5.39.0
 
 Summary:	plasma-firewall
 Name:		kp5-%{kpname}
-Version:	5.25.3
+Version:	5.25.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	b684ff9c14637c113c63ba16046da5aa
+# Source0-md5:	e08c0ad74f68666713c5891f73b6432b
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= 5.15.0
 BuildRequires:	Qt5DBus-devel >= 5.15.0
