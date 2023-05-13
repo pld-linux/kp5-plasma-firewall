@@ -9,7 +9,7 @@
 Summary:	plasma-firewall
 Name:		kp5-%{kpname}
 Version:	5.27.5
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -74,12 +74,14 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kpname}.lang
 %defattr(644,root,root,755)
 %{_libdir}/libkcm_firewall_core.so
+%dir %{_libdir}/qt5/plugins/kf5/plasma_firewall
 %{_libdir}/qt5/plugins/kf5/plasma_firewall/firewalldbackend.so
 %{_libdir}/qt5/plugins/kf5/plasma_firewall/ufwbackend.so
 %attr(755,root,root) %{_prefix}/libexec/kauth/kde_ufw_plugin_helper
 %attr(755,root,root) %{_prefix}/libexec/kde_ufw_plugin_helper.py
 %{_datadir}/dbus-1/system-services/org.kde.ufw.service
 %{_datadir}/dbus-1/system.d/org.kde.ufw.conf
+%dir %{_datadir}/kcm_ufw
 %{_datadir}/kcm_ufw/defaults
 %{_datadir}/kpackage/kcms/kcm_firewall
 %{_datadir}/metainfo/org.kde.plasma.firewall.metainfo.xml
